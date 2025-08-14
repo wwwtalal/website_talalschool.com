@@ -1,148 +1,846 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talal International School | Admissions</title>
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />    
+    <title>Talal International School</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #ffd700;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><circle fill="%23e6f3ff" cx="200" cy="150" r="80"/><circle fill="%23d1e9ff" cx="800" cy="300" r="120"/><circle fill="%23bce0ff" cx="1000" cy="100" r="60"/><rect fill="%23a7d7ff" x="100" y="400" width="200" height="150" rx="10"/><rect fill="%2392ceff" x="900" y="450" width="250" height="100" rx="10"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card i {
+            font-size: 3rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        /* Curriculum Section */
+        .curriculum {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .curriculum-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curriculum-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .curriculum-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .curriculum-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .curriculum-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .curriculum-features i {
+            color: #ffd700;
+        }
+
+        /* Fees Section */
+        .fees {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .fees-table-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+
+        .fees-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .fees-table th {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .fees-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+        }
+
+        .fees-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #2a5298;
+            font-size: 1.1rem;
+        }
+
+        /* Facilities Section */
+        .facilities {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .facilities-grid {
+            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .facility-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .facility-item:hover {
+            background: #2a5298;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .facility-item i {
+            font-size: 3rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .facility-item:hover i {
+            color: #ffd700;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .about-grid,
+            .curriculum-grid,
+            .facilities-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fees-table th,
+            .fees-table td {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add some visual interest with floating elements */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .floating-shapes div {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shapes div:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-shapes div:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-shapes div:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
 <body>
-    
-<nav class="navbar navbar-expand-lg" style="background-color: #07609C;" data-bs-theme="dark"> 
-  <div class="container-fluid">
-    <a class="navbar-brand" href=""><img src="static/img/TalalSchoolLogoSqr@0.25x.png" alt="Talal International School Logo" style="width: 30px; height: 30px; margin-right: 10px;">Talal International School</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">Admissions</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    <div class="container">
-        <h1>Admissions</h1>
-<p class="fs-3 p-5 text-center bg-body-tertiary rounded-3" style="">British Curriculum
-<br/>
-From KG-1 up to Grade 9
-</p><p class="fs-3" style="">Tuition Fees (2025 - 2026)</p>
-                <table class="table table-striped table-hover table-bordered border-primary">
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Talal International School</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#fees">Admissions</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-shapes">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hero-content">
+            <h2>Empowering minds for over two decades</h2>
+            <p>With excellent education Following British curriculum</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">30+</span>
+                    <span class="stat-label">Nationalities</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Studied Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">KG1-G9</span>
+                    <span class="stat-label">Grade Levels</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Our School</h2>
+            <p class="section-subtitle">Talal International School has been a beacon of educational excellence in Jeddah for over two decades, nurturing young minds.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Excellence in Education</h3>
+                    <p>Two decades of proven academic excellence with a commitment to providing high-quality international education that prepares students for global success.</p>
+                </div>
+                
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Separated Learning Environment</h3>
+                    <p>Dedicated boys and girls schools ensuring focused learning environments that respect cultural values while maintaining international standards.</p>
+                </div>
+                
+                <div class="about-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>International Standards</h3>
+                    <p>Following world-renowned British curriculum to provide students with globally recognized qualifications and comprehensive education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="curriculum">
+        <div class="container">
+            <h2 class="section-title">Our Curriculum</h2>
+            <p class="section-subtitle">We follow the internationally recognized British curriculum designed to provide comprehensive education from KG-1 to Grade 9.</p>
+            
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <h3><i class="fas fa-flag"></i> British Curriculum</h3>
+                    <p>Following the prestigious British educational system, preparing students for international qualifications and global opportunities with a focus on holistic development.</p>
+                    <ul class="curriculum-features">
+                        <li><i class="fas fa-check"></i> Cambridge-aligned standards</li>
+                        <li><i class="fas fa-check"></i> Creative and critical thinking focus</li>
+                        <li><i class="fas fa-check"></i> Comprehensive assessment methods</li>
+                        <li><i class="fas fa-check"></i> Preparation for IGCSE</li>
+                        <li><i class="fas fa-check"></i> Strong STEM foundation</li>
+                        <li><i class="fas fa-check"></i> Language arts excellence</li>
+                        <li><i class="fas fa-check"></i> Character development programs</li>
+                        <li><i class="fas fa-check"></i> International recognition</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fees Section -->
+    <section id="fees" class="fees">
+        <div class="container">
+            <h2 class="section-title">Tuition Fees 2025-2026</h2>
+            <p class="section-subtitle">Affordable, high-quality international education fee structure.</p>
+            
+            <div class="fees-table-container">
+                <table class="fees-table">
                     <thead>
                         <tr>
-                            <th>Class</th><th>Price (SAR/Month) excluding VAT</th>
+                            <th>Grade Level</th>
+                            <th>Monthly Fee (SAR)</th>
+                            <th>Annual Fee (SAR)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>KG 1</td><td>900</td></tr><tr><td>KG 2</td><td>1,000</td></tr><tr><td>KG 3</td><td>1,050</td></tr><tr><td>Grade 1</td><td>1,100</td></tr><tr><td>Grade 2</td><td>1,150</td></tr><tr><td>Grade 3</td><td>1,200</td></tr><tr><td>Grade 4</td><td>1,250</td></tr><tr><td>Grade 5</td><td>1,300</td></tr><tr><td>Grade 6</td><td>1,350</td></tr><tr><td>Grade 7</td><td>1,400</td></tr><tr><td>Grade 8</td><td>1,400</td></tr><tr><td>Grade 9</td><td>1,400</td></tr>
+                        <tr>
+                            <td>KG 1</td>
+                            <td class="price">900</td>
+                            <td class="price">9,000</td>
+                        </tr>
+                        <tr>
+                            <td>KG 2</td>
+                            <td class="price">1,000</td>
+                            <td class="price">10,000</td>
+                        </tr>
+                        <tr>
+                            <td>KG 3</td>
+                            <td class="price">1,050</td>
+                            <td class="price">10,500</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 1</td>
+                            <td class="price">1,100</td>
+                            <td class="price">11,000</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 2</td>
+                            <td class="price">1,150</td>
+                            <td class="price">11,500</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 3</td>
+                            <td class="price">1,200</td>
+                            <td class="price">12,000</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 4</td>
+                            <td class="price">1,250</td>
+                            <td class="price">12,500</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 5</td>
+                            <td class="price">1,300</td>
+                            <td class="price">13,000</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 6</td>
+                            <td class="price">1,350</td>
+                            <td class="price">13,500</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 7</td>
+                            <td class="price">1,400</td>
+                            <td class="price">14,000</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 8</td>
+                            <td class="price">1,400</td>
+                            <td class="price">14,000</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 9</td>
+                            <td class="price">1,400</td>
+                            <td class="price">14,000</td>
+                        </tr>
                     </tbody>
                 </table>
-                
-    </div>
-    <!-- Footer -->
-<footer class="text-center text-lg-start bg-body-tertiary text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div>
-    </div>
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center">
-        
-    
-      <a href="https://www.instagram.com/talalschool" class="me-4 text-reset text-decoration-none" target="_blank" style="font-size: 1.5rem;">
-          <i class="fab fa-instagram"></i>
-      </a>
-    
-      <a href="https://www.facebook.com/talalschoolksa" class="me-4 text-reset text-decoration-none" target="_blank" style="font-size: 1.5rem;">
-          <i class="fab fa-facebook"></i>
-      </a>
-    
-      <a href="https://x.com/talalschool1" class="me-4 text-reset text-decoration-none" target="_blank" style="font-size: 1.5rem;">
-          <i class="fab fa-twitter"></i>
-      </a>
-    
-      <a href="https://linkedin.com/company/talal-international-schools/" class="me-4 text-reset text-decoration-none" target="_blank" style="font-size: 1.5rem;">
-          <i class="fab fa-linkedin"></i>
-      </a>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
+                * Fees exclude VAT. Additional fees may apply for registration, books, and uniforms.
+            </p>
+        </div>
     </section>
-    <!-- Right -->
-    <div>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
 
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Talal International School
-          </h6>
-          <div>
-            <img src="static/img/tis-logo-205x248.png" alt="Talal International School Logo" style="width: 40%; height: 40%; margin-bottom: 10px;">
-          </div>
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities">
+        <div class="container">
+            <h2 class="section-title">Facilities</h2>
+            <p class="section-subtitle">Facilities designed to enhance the learning experience and support holistic development.</p>
+            
+            <div class="facilities-grid">
+                <div class="facility-item">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Science Laboratories</h3>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Library</h3>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-running"></i>
+                    <h3>Sport Playground</h3>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Computer Lab</h3>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-palette"></i>
+                    <h3>Art Studio</h3>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe Environment</h3>
+                </div>
+            </div>
         </div>
-        <!-- Grid column -->
+    </section>
 
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Location
-          </h6>
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.3758568735198!2d39.1860366!3d21.499758699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3cfa872ca88a9%3A0x1923876b36187e5e!2sTalal%20International%20School!5e1!3m2!1sen!2ssa!4v1754846734693!5m2!1sen!2ssa" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch with us to learn more about admissions and our educational programs.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Al-Baghdadiyah Al-Sharqiyah</p>
+                    <p>Jeddah, Saudi Arabia</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>920027055</p>
+                    <p>Contact us for admissions inquiries<br>and school information</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@talalschool.com</p>
+                    <p>Send us your questions<br>and we'll get back to you</p>
+                </div>
+                
+            </div>
         </div>
-        
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <div><i class="fas fa-home me-3"></i> Jeddah, Saudi Arabia</div>
-          <div>
-            <i class="fas fa-envelope me-3"></i>
-            info@talalschool.com
-            <!--
-            <i class="fas fa-copy mx-1"></i>
-            <i class="fas fa-arrow-up-right-from-square"></i>
-            -->
-          </div>
-          <div><i class="fas fa-phone me-3"></i>9200 27055</div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/talalschool" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/talalschoolksa" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/talalschool1" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/talal-international-schools" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2025 Talal International School, All rights reserved.</p>
+            <p>Powered by Emaxer ( v1.3 )</p>
         </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
+    </footer>
 
-  <!-- Copyright -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
 
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    <p class="text-reset">&copy; 2025 Talal International School. All rights reserved.</p>
-    <p>Powered by <a class="text-reset" href="https://emaxer.com">Emaxer</a> ( v1.2 )</p>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-    
-    <script src="static/js/bootstrap.bundle.min.js"></script>
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.about-card, .facility-item, .contact-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
