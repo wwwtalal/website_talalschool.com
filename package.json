@@ -1,0 +1,25 @@
+{
+  "name": "website_talalschool.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwwtalal/website_talalschool.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wwwtalal/website_talalschool.com/issues"
+  },
+  "homepage": "https://github.com/wwwtalal/website_talalschool.com#readme",
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
