@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "http-server src -o -p 5000",
-    "build": "npm-run-all --serial build:copy build:minify:html build:minify:css build:serve",
+    "build": "npm-run-all --serial build:copy build:minify:html build:serve",
     "build:copy": "copyfiles -u 1 src/static/**/* docs",
     "build:minify:html": "html-minifier-terser --collapse-whitespace --remove-comments --remove-optional-tags --minify-css true --minify-js true src/index.html -o docs/index.html",
     "build:minify:css": "cleancss -o docs/static/css/styles.css src/static/css/styles.css",

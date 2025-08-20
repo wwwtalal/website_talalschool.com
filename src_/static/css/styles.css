@@ -11,14 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-@font-face {
-    font-family: 'Arshid';
-    src: url('/static/fonts/Arshid.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 /* Header */
 .header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
