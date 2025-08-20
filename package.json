@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
+    "dev": "http-server src -o -p 5000",
+    "build": "npm-run-all --serial build:copy build:minify:html build:minify:css build:serve",
+    "build:copy": "copyfiles -u 1 src/static/**/* docs",
+    "build:minify:html": "html-minifier-terser --collapse-whitespace --remove-comments --remove-optional-tags --minify-css true --minify-js true src/index.html -o docs/index.html",
+    "build:minify:css": "cleancss -o docs/static/css/styles.css src/static/css/styles.css",
+    "build:serve": "http-server docs -o -p 8088",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +23,10 @@
   },
   "homepage": "https://github.com/wwwtalal/website_talalschool.com#readme",
   "devDependencies": {
-    "html-minifier-terser": "^7.2.0"
+    "clean-css-cli": "^5.6.3",
+    "copyfiles": "^2.4.1",
+    "html-minifier-terser": "^7.2.0",
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5"
   }
 }

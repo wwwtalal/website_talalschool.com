@@ -5,496 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talal Schools</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo i {
-            font-size: 2rem;
-            color: #ffd700;
-        }
-
-        .logo h1 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ffd700;
-        }
-
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><circle fill="%23e6f3ff" cx="200" cy="150" r="80"/><circle fill="%23d1e9ff" cx="800" cy="300" r="120"/><circle fill="%23bce0ff" cx="1000" cy="100" r="60"/><rect fill="%23a7d7ff" x="100" y="400" width="200" height="150" rx="10"/><rect fill="%2392ceff" x="900" y="450" width="250" height="100" rx="10"/></svg>');
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-content h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content p {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin-top: 3rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ffd700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* About Section */
-        .about {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .about-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .about-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .about-card i {
-            font-size: 3rem;
-            color: #2a5298;
-            margin-bottom: 1rem;
-        }
-
-        .about-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1e3c72;
-        }
-
-        /* Curriculum Section */
-        .curriculum {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .curriculum-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .curriculum-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .curriculum-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        .curriculum-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .curriculum-features {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .curriculum-features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .curriculum-features i {
-            color: #ffd700;
-        }
-
-        /* Fees Section */
-        .fees {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .fees-table-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-            margin-top: 3rem;
-        }
-
-        .fees-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .fees-table th {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1.5rem;
-            text-align: left;
-            font-size: 1.1rem;
-        }
-
-        .fees-table td {
-            padding: 1.2rem 1.5rem;
-            border-bottom: 1px solid #eee;
-            font-size: 1rem;
-        }
-
-        .fees-table tr:hover {
-            background: #f8f9fa;
-        }
-
-        .price {
-            font-weight: bold;
-            color: #2a5298;
-            font-size: 1.1rem;
-        }
-
-        /* Facilities Section */
-        .facilities {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .facilities-grid {
-            align-items: center;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .facility-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-        }
-
-        .facility-item:hover {
-            background: #2a5298;
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        .facility-item i {
-            font-size: 3rem;
-            color: #2a5298;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .facility-item:hover i {
-            color: #ffd700;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-item i {
-            font-size: 2.5rem;
-            color: #ffd700;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-
-        .social-links {
-            margin: 2rem 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #ffd700;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .hero-stats {
-                gap: 1.5rem;
-            }
-
-            .about-grid,
-            .curriculum-grid,
-            .facilities-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .fees-table th,
-            .fees-table td {
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Add some visual interest with floating elements */
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .floating-shapes div {
-            position: absolute;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-shapes div:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-shapes div:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-shapes div:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-    </style>
+    <link href="/static/css/styles.css" rel="stylesheet">
     <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />    
 </head>
@@ -617,70 +128,70 @@
                     <thead>
                         <tr>
                             <th>Grade Level</th>
-                            <th>Monthly Fee (SAR)</th>
-                            <th>Annual Fee (SAR)</th>
+                            <th>Monthly Fee</th>
+                            <th>Annual Fee</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>KG 1</td>
-                            <td class="price">900</td>
-                            <td class="price">9,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>900</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>9,000</td>
                         </tr>
                         <tr>
                             <td>KG 2</td>
-                            <td class="price">1,000</td>
-                            <td class="price">10,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>10,000</td>
                         </tr>
                         <tr>
                             <td>KG 3</td>
-                            <td class="price">1,050</td>
-                            <td class="price">10,500</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,050</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>10,500</td>
                         </tr>
                         <tr>
                             <td>Grade 1</td>
-                            <td class="price">1,100</td>
-                            <td class="price">11,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,100</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>11,000</td>
                         </tr>
                         <tr>
                             <td>Grade 2</td>
-                            <td class="price">1,150</td>
-                            <td class="price">11,500</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,150</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>11,500</td>
                         </tr>
                         <tr>
                             <td>Grade 3</td>
-                            <td class="price">1,200</td>
-                            <td class="price">12,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,200</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>12,000</td>
                         </tr>
                         <tr>
                             <td>Grade 4</td>
-                            <td class="price">1,250</td>
-                            <td class="price">12,500</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,250</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>12,500</td>
                         </tr>
                         <tr>
                             <td>Grade 5</td>
-                            <td class="price">1,300</td>
-                            <td class="price">13,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,300</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>13,000</td>
                         </tr>
                         <tr>
                             <td>Grade 6</td>
-                            <td class="price">1,350</td>
-                            <td class="price">13,500</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,350</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>13,500</td>
                         </tr>
                         <tr>
                             <td>Grade 7</td>
-                            <td class="price">1,400</td>
-                            <td class="price">14,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,400</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>14,000</td>
                         </tr>
                         <tr>
                             <td>Grade 8</td>
-                            <td class="price">1,400</td>
-                            <td class="price">14,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,400</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>14,000</td>
                         </tr>
                         <tr>
                             <td>Grade 9</td>
-                            <td class="price">1,400</td>
-                            <td class="price">14,000</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>1,400</td>
+                            <td class="price"><span style="font-family: 'Arshid';">$</span>14,000</td>
                         </tr>
                     </tbody>
                 </table>
