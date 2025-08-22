@@ -102,12 +102,22 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #1e3c72;
+            font-weight: 700;
+            margin-top: 1rem;
         }
 
         .section-subtitle {
             font-size: 1.1rem;
             color: #666;
             margin-bottom: 3rem;
+        }
+
+        .section-part-title {
+            font-size: 1.5rem;
+            margin-bottom: .5rem;
+            color: #1e3c72;
+            font-weight: 700;
+            margin-top: 1rem;
         }
 
         /* Cards */
@@ -212,10 +222,14 @@
             background-color: #f8f9fa;
         }
 
+        .price-header {
+            text-align: center;
+        }
         .price {
             font-weight: bold;
             color: #2a5298;
             font-size: 1.1rem;
+            text-align: center;
         }
 
         /* Facility Items */
@@ -358,6 +372,7 @@
             
             .section-title {
                 font-size: 2rem;
+                
             }
         }
 
@@ -543,25 +558,32 @@
         </div>
     </section>
 
+    
     <!-- Fees Section -->
     <section id="fees" class="py-5 bg-light">
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Tuition Fees 2025-2026</h2>
+                    <h2 class="section-title">Fees and Discounts 2025-2026</h2>
                     <p class="section-subtitle">Affordable, high-quality international education for all grade levels.</p>
                 </div>
             </div>
             
+            <!-- Tuition Fees -->
             <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="section-part-title">Tuition Fees</h3>
+                    <p class="text-center text-muted fst-italic">* All prices are exclusive of VAT.</p>
+                </div>
                 <div class="col-lg-10">
                     <div class="fees-table-container">
                         <table class="table table-custom">
                             <thead>
                                 <tr>
                                     <th>Grade Level</th>
-                                    <th>Monthly Fee (SAR)</th>
-                                    <th>Annual Fee (SAR)</th>
+                                    <th class="price-header">Monthly Fee (SAR)</th>
+                                    <th class="price-header">Annual Fee (SAR)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -628,11 +650,225 @@
                             </tbody>
                         </table>
                     </div>
-                    <p class="text-center mt-4 text-muted fst-italic">
-                        * Fees exclude VAT. Additional fees may apply for registration, books, and uniforms.
-                    </p>
                 </div>
             </div>
+
+            <!-- Advance Payment Discounts -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="section-part-title">Advance Payment Discounts</h3>
+                    <p class="text-center text-muted">Applicable only when fees are paid in advance.</p>
+                    <p class="text-center text-muted fst-italic">* All prices are exclusive of VAT.</p>
+                </div>
+                <div class="col-lg-10">
+                    <div class="fees-table-container">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Months in Advance</th>
+                                    <th class="price-header">Total Discount (SAR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1 Month</td>
+                                    <td class="price">50</td>
+                                </tr>
+                                <tr>
+                                    <td>2 Months</td>
+                                    <td class="price">150</td>
+                                </tr>
+                                <tr>
+                                    <td>3 Months</td>
+                                    <td class="price">250</td>
+                                </tr>
+                                <tr>
+                                    <td>4 Months</td>
+                                    <td class="price">350</td>
+                                </tr>
+                                <tr>
+                                    <td>5 Months</td>
+                                    <td class="price">450</td>
+                                </tr>
+                                <tr>
+                                    <td>6 Months</td>
+                                    <td class="price">550</td>
+                                </tr>
+                                <tr>
+                                    <td>7 Months</td>
+                                    <td class="price">650</td>
+                                </tr>
+                                <tr>
+                                    <td>8 Months</td>
+                                    <td class="price">750</td>
+                                </tr>
+                                <tr>
+                                    <td>9 Months</td>
+                                    <td class="price">850</td>
+                                </tr>
+                                <tr>
+                                    <td>10 Months</td>
+                                    <td class="price">950</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sibling Discounts -->            
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="section-part-title">Sibling Discounts</h3>
+                    <p class="text-center text-muted fst-italic">* All prices are exclusive of VAT.</p>
+                </div>
+                <div class="col-lg-10">
+                    <div class="fees-table-container">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Sibling</th>
+                                    <th class="price-header">Monthly Discount (SAR)</th>
+                                    <th class="price-header">Annual Discount (SAR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>First</td>
+                                    <td class="price">0</td>
+                                    <td class="price">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Second</td>
+                                    <td class="price">50</td>
+                                    <td class="price">500</td>
+                                </tr>
+                                <tr>
+                                    <td>Third</td>
+                                    <td class="price">100</td>
+                                    <td class="price">1,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Fourth</td>
+                                    <td class="price">150</td>
+                                    <td class="price">1,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Fifth</td>
+                                    <td class="price">200</td>
+                                    <td class="price">2,000</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Fees -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="section-part-title">Other Fees</h3>
+                    <p class="text-center text-muted">Additional charges may apply for items not specified.</p>
+                    <p class="text-center text-muted fst-italic">* All prices are exclusive of VAT.</p>
+                </div>
+                <div class="col-lg-10">
+                    <div class="fees-table-container">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Fee Type</th>
+                                    <th class="price-header">One-time Total (SAR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New student (registration)</td>
+                                    <td class="price">500</td>
+                                </tr>
+                                <tr>
+                                    <td>Books</td>
+                                    <td class="price">TBA</td>
+                                </tr>
+                                <tr>
+                                    <td>Uniforms</td>
+                                    <td class="price">TBA</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Discounts -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="section-part-title">Other Discounts</h3>
+                    <p class="text-center text-muted fst-italic">* All prices are exclusive of VAT.</p>
+                </div>
+                <div class="col-lg-10">
+                    <div class="fees-table-container">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Discounts Type</th>
+                                    <th class="price-header">Monthly (SAR)</th>
+                                    <th class="price-header">Annual (SAR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Existing parent from last year (Apply to Each Student)</td>
+                                    <td class="price">200</td>
+                                    <td class="price">2,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transportation Fees -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="section-part-title">Transportation Fees</h3>
+                    <p class="text-center text-muted fst-italic">* All prices are exclusive of VAT.</p>
+                </div>
+                <div class="col-lg-10">
+                    <div class="fees-table-container">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Distance</th>
+                                    <th class="price-header">Monthly Fee (SAR)</th>
+                                    <th class="price-header">Annual Fee (SAR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Near Place</td>
+                                    <td class="price">300</td>
+                                    <td class="price">3,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid Place</td>
+                                    <td class="price">350</td>
+                                    <td class="price">3,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Far Place</td>
+                                    <td class="price">400</td>
+                                    <td class="price">4,000</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -647,6 +883,7 @@
             </div>
             
             <div class="row g-4">
+
                 <div class="col-lg-4 col-md-6">
                     <div class="facility-item">
                         <i class="fas fa-microscope"></i>
