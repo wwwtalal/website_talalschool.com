@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "http-server src -o -p 5000",
-    "build": "npm-run-all --serial build:copy build:minify:html build:serve",
-    "build:copy": "copyfiles -u 1 src/static/**/* docs",
+    "build": "npm-run-all --serial build:clean build:copy:github build:copy:fonts build:copy:img build:minify:css build:minify:js build:minify:html build:serve",
+    "build:clean": "rimraf docs",
+    "build:copy:github": "copyfiles -u 2 src/github_config/CNAME docs",
+    "build:copy:fonts": "copyfiles -u 1 src/static/fonts/**/* docs",
+    "build:copy:img": "copyfiles -u 1 src/static/img/**/* docs",
+    "build:minify:css": "cleancss -o docs/static/css/styles.css src/static/css/*.css",
+    "build:minify:js": "terser src/static/js/*.js -o docs/static/js/scripts.js --compress --mangle",
     "build:minify:html": "html-minifier-terser --collapse-whitespace --remove-comments --remove-optional-tags --minify-css true --minify-js true src/index.html -o docs/index.html",
-    "build:minify:css": "cleancss -o docs/static/css/styles.css src/static/css/styles.css",
     "build:serve": "http-server docs -o -p 8088",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +31,8 @@
     "copyfiles": "^2.4.1",
     "html-minifier-terser": "^7.2.0",
     "http-server": "^14.1.1",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1",
+    "terser": "^5.43.1"
   }
 }
