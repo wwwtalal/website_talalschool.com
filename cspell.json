@@ -1,0 +1,24 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "files": [
+    "**/*.html",
+    "**/*.md",
+    "LICENSE"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "docs/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "words": [
+    "Baghdadiyah",
+    "Emaxer",
+    "IGCSE",
+    "Jeddah",
+    "Sharqiyah",
+    "Talal",
+    "talalschool",
+  ]
+}

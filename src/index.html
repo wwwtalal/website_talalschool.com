@@ -8,394 +8,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+    <!-- Custom CSS -->
     <link href="/static/css/styles.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --accent-color: #ffd700;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            padding-top: 80px; /* Account for fixed navbar */
-        }
-
-        /* Custom Navbar */
-        .navbar-custom {
-            background: var(--primary-gradient) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-        }
-
-        .navbar-brand {
-            color: white !important;
-            font-weight: 700;
-            font-size: 1.8rem;
-        }
-
-        .navbar-brand i {
-            color: var(--accent-color);
-            margin-right: 1rem;
-        }
-
-        .navbar-nav .nav-link {
-            color: white !important;
-            font-weight: 500;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--accent-color) !important;
-        }
-
-        .navbar-toggler {
-            border: none;
-            color: white;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><circle fill="%23e6f3ff" cx="200" cy="150" r="80"/><circle fill="%23d1e9ff" cx="800" cy="300" r="120"/><circle fill="%23bce0ff" cx="1000" cy="100" r="60"/><rect fill="%23a7d7ff" x="100" y="400" width="200" height="150" rx="10"/><rect fill="%2392ceff" x="900" y="450" width="250" height="100" rx="10"/></svg>');
-            min-height: 100vh;
-            color: white;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content p.lead {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .hero-stats {
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* Section Styling */
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #1e3c72;
-            font-weight: 700;
-            margin-top: 1rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 3rem;
-        }
-
-        .section-part-title {
-            font-size: 1.5rem;
-            margin-bottom: .5rem;
-            color: #1e3c72;
-            font-weight: 700;
-            margin-top: 1rem;
-        }
-
-        /* Cards */
-        .about-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-            height: 100%;
-            border: none;
-        }
-
-        .about-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .about-card i {
-            font-size: 3rem;
-            color: #2a5298;
-            margin-bottom: 1rem;
-        }
-
-        .about-card .card-title {
-            color: #1e3c72;
-            font-size: 1.5rem;
-        }
-
-        /* Curriculum Card */
-        .curriculum-card {
-            background: var(--secondary-gradient);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            border: none;
-        }
-
-        .curriculum-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        .curriculum-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .curriculum-features {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-        }
-
-        .curriculum-features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .curriculum-features i {
-            color: var(--accent-color);
-        }
-
-        /* Fees Table */
-        .fees-table-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .table-custom {
-            margin-bottom: 0;
-        }
-
-        .table-custom thead th {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 1.5rem;
-            border: none;
-            font-size: 1.1rem;
-        }
-
-        .table-custom td {
-            font-weight: 500;
-            padding: 1.2rem 1.5rem;
-            font-size: 1rem;
-            vertical-align: middle;
-        }
-
-        .table-custom tbody tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        .price-header {
-            text-align: center;
-        }
-        .price {
-            color: #2a5298;
-            font-size: 1.1rem;
-            text-align: center;
-        }
-
-        /* Facility Items */
-        .facility-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .facility-item:hover {
-            background: #2a5298;
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        .facility-item i {
-            font-size: 3rem;
-            color: #2a5298;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .facility-item:hover i {
-            color: var(--accent-color);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--primary-gradient);
-            color: white;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            height: 100%;
-        }
-
-        .contact-item i {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Floating Shapes */
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        .floating-shapes div {
-            position: absolute;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-shapes div:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-shapes div:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-shapes div:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content h3.display-6 {
-                font-size: 1.75rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-                
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        section[id] {
-            scroll-margin-top: 80px; /* Adjust this value to match your navbar's height */
-        }
-    </style>
-    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#home">
-                <img src="static/img/TalalSchoolLogoSqr@0.25x.png" alt="Talal Schools Logo" height="50" class="me-3">
+                <img src="static/img/TalalSchoolLogoSqr@0.25x.png" alt="Talal Schools Logo" height="50" class="me-3 nav-logo">
                 Talal Schools
             </a>     
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -526,28 +150,28 @@
                     
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-primary border-4">
+                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-4">
                                 <h5 class="fw-bold text-dark mb-3">Our Foundation</h5>
                                 <p class="text-muted lh-lg">Talal International School, Jeddah opened its doors with a vision to provide exceptional education in a nurturing environment. Today, the school proudly educates a diverse student body representing a wide range of nationalities.</p>
                             </div>
                         </div>
                         
                         <div class="col-md-6">
-                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-success border-4">
+                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-4">
                                 <h5 class="fw-bold text-dark mb-3">Our Identity</h5>
                                 <p class="text-muted lh-lg">TIS is a vibrant, gender-segregated international school in the Kingdom of Saudi Arabia offering a curriculum designed to empower learners for lifelong success. TIS is recognized by the Saudi Ministry of Education and adheres to global educational standards.</p>
                             </div>
                         </div>
                         
                         <div class="col-md-6">
-                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-warning border-4">
+                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-4">
                                 <h5 class="fw-bold text-dark mb-3">Our Educators</h5>
                                 <p class="text-muted lh-lg">Our team of educators includes certified teachers and qualified professionals from  from diverse countries, creating a rich blend of expertise and cultural understanding.</p>
                             </div>
                         </div>
                         
                         <div class="col-md-6">
-                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-info border-4">
+                            <div class="bg-white p-4 rounded-3 shadow-sm h-100 border-start border-4">
                                 <h5 class="fw-bold text-dark mb-3">Our Mission</h5>
                                 <p class="text-muted lh-lg">The school emphasizes academic excellence through engaging, student-centered classrooms that foster confidence and creativity. In line with our mission to guide, groom, and motivate students beyond expectations, TIS is continuously evolving to incorporate best practices and internationally benchmarked programs that shape responsible global citizens.</p>
                             </div>
@@ -932,7 +556,7 @@
                     <div class="facility-item">
                         <i class="fas fa-microscope"></i>
                         <h3>Science Laboratories</h3>
-                        <p>scientific laboratories equipped with instruments for hands-on learning</p>
+                        <p>Scientific laboratories equipped with instruments for hands-on learning</p>
                     </div>
                 </div>
                 
@@ -956,7 +580,7 @@
                     <div class="facility-item">
                         <i class="fas fa-laptop"></i>
                         <h3>Computer Lab</h3>
-                        <p>Computer laboratorie for digital literacy</p>
+                        <p>Computer laboratory for digital literacy</p>
                     </div>
                 </div>
                 
@@ -972,7 +596,7 @@
                     <div class="facility-item">
                         <i class="fas fa-shield-alt"></i>
                         <h3>Safe Environment</h3>
-                        <p>Secure campus with supervision andsafety measures</p>
+                        <p>Secure campus with supervision and safety measures</p>
                     </div>
                 </div>
             </div>
@@ -1041,76 +665,13 @@
                 <a title="LinkedIn" target="_blank" href="https://linkedin.com/company/talal-international-schools"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <p class="mb-2">&copy; 2025 Talal International Schools, Inc. All rights reserved.</p>
-            <p class="mb-0"></p>
+            <p class="mb-0 powered-by">Powered by <a href="https://emaxer.com" target="_blank" rel="noopener noreferrer">Emaxer</a></p>
         </div>
     </footer>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (navbarCollapse.classList.contains('show')) {
-                        bootstrap.Collapse.getInstance(navbarCollapse).hide();
-                    }
-                }
-            });
-        });
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar-custom');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(30, 60, 114, 0.95) !important';
-            } else {
-                navbar.style.background = 'var(--primary-gradient) !important';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(50px)';
-            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(section);
-        });
-
-        // Add hover effects for interactive elements
-        document.querySelectorAll('.about-card, .facility-item, .contact-item').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="/static/js/scripts.js"></script>
 </body>
 </html>
