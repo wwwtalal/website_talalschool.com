@@ -7,6 +7,7 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+## [1.0.0] - 2025-08-24
 ### Added
 - Logo glow effect on load and hover.
 - Added spell checker for dev and build process.
