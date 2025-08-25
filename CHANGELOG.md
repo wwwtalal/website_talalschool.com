@@ -7,19 +7,25 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-08-25
+
 ### Added
 - **Scrollspy**: Implemented Bootstrap's Scrollspy to highlight the active navigation link based on scroll position.
 
 ### Changed
+- **Fees Section**: Refactored the multiple fee tables into a single, collapsible Bootstrap accordion for improved user experience.
+- **Build Process**: Updated minification scripts to remove all comments, including license headers, from production CSS and JS files.
 - **SEO**: Enhanced structured data with social links and opening hours, and improved footer link accessibility for screen readers.
 
 ### Fixed
 - **Scrollspy**: Corrected highlighting inaccuracy by synchronizing CSS offsets with the navbar height.
+- **Build Process**: Corrected `cleancss` command-line option from `--level` to `-O2`.
 - Corrected CSS and JavaScript paths in `index.html` to ensure they load correctly with the development server.
 - Corrected the logo image path in the navigation bar.
 - Merged bootstrap css to custom css, and bootstrap js to custom js
 
 ## [1.0.0] - 2025-08-24
+
 ### Added
 - Logo glow effect on load and hover.
 - Added spell checker for dev and build process.
