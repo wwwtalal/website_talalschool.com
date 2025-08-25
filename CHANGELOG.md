@@ -7,6 +7,18 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+### Added
+- **Scrollspy**: Implemented Bootstrap's Scrollspy to highlight the active navigation link based on scroll position.
+
+### Changed
+- **SEO**: Enhanced structured data with social links and opening hours, and improved footer link accessibility for screen readers.
+
+### Fixed
+- **Scrollspy**: Corrected highlighting inaccuracy by synchronizing CSS offsets with the navbar height.
+- Corrected CSS and JavaScript paths in `index.html` to ensure they load correctly with the development server.
+- Corrected the logo image path in the navigation bar.
+- Merged bootstrap css to custom css, and bootstrap js to custom js
+
 ## [1.0.0] - 2025-08-24
 ### Added
 - Logo glow effect on load and hover.
