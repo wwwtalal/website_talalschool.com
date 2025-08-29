@@ -71,12 +71,42 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><circle fill="%23e6f3ff" cx="200" cy="150" r="80"/><circle fill="%23d1e9ff" cx="800" cy="300" r="120"/><circle fill="%23bce0ff" cx="1000" cy="100" r="60"/><rect fill="%23a7d7ff" x="100" y="400" width="200" height="150" rx="10"/><rect fill="%2392ceff" x="900" y="450" width="250" height="100" rx="10"/></svg>');
     min-height: 100vh;
     color: white;
     position: relative;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden; /* Ensures the carousel doesn't bleed out */
+    background-color: #1e3c72; /* Base color for smooth transition */
+}
+
+#heroCarousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#heroCarousel .carousel-item {
+    height: 100vh;
+    transition: opacity .6s ease-in-out;
+}
+
+#heroCarousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is key to prevent image stretching */
+}
+
+/* Add a dark overlay to ensure text is readable */
+#heroCarousel .carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 60, 114, 0.7); /* Dark blue overlay */
 }
 
 .hero-content h1 {
@@ -96,6 +126,10 @@ body {
 
 .hero-stats {
     animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.hero .container-fluid {
+    z-index: 1; /* Make sure the content is on top of the carousel */
 }
 
 .stat-number {
@@ -339,47 +373,6 @@ body {
 .powered-by a:hover {
     color: white;
 }
-/* Floating Shapes */
-.floating-shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-.floating-shapes div {
-    position: absolute;
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
-}
-
-.floating-shapes div:nth-child(1) {
-    width: 80px;
-    height: 80px;
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.floating-shapes div:nth-child(2) {
-    width: 120px;
-    height: 120px;
-    top: 60%;
-    right: 10%;
-    animation-delay: 2s;
-}
-
-.floating-shapes div:nth-child(3) {
-    width: 60px;
-    height: 60px;
-    top: 80%;
-    left: 20%;
-    animation-delay: 4s;
-}
 
 /* Animations */
 @keyframes fadeInUp {
@@ -396,11 +389,6 @@ body {
 @keyframes shine {
     0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
     100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
 }
 
 /* Responsive adjustments */
